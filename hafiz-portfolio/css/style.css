@@ -1,0 +1,819 @@
+
+/* ========================================
+   1. GLOBAL RESET
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   2. DESIGN TOKENS
+======================================== */
+
+:root {
+    --color-background: #F3F0E9;
+    --color-surface: #FFFFFF;
+    --color-primary: #23364D;
+    --color-secondary: #52677C;
+    --color-accent: #527C78;
+    --color-detail: #D9C8A6;
+}
+
+
+/* ========================================
+   3. BASE STYLE
+======================================== */
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+body {
+    background-color: var(--color-background);
+    color: var(--color-primary);
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+
+/* ========================================
+   4. NAVIGATION BAR
+======================================== */
+
+header {
+    background-color: var(--color-primary);
+    padding: 18px 8%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+
+    box-sizing: border-box;
+}
+
+header.nav-hidden {
+    transform: translateY(-100%);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+}
+
+nav ul li a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+nav ul li a:hover {
+    color: #D9C8A6;
+}
+
+/* Navigation Links */
+.nav-menu a {
+    display: block;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    padding: 14px 20px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Hover Effect */
+.nav-menu a:hover {
+    color: var(--color-detail);
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* ========================================
+   5. HERO SECTION
+======================================== */
+
+#home {
+    min-height: 100vh;
+    padding: 120px 8% 80px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    background-color: var(--color-background);
+}
+
+.hero-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: block;
+}
+
+.hero-content {
+    max-width: 760px;
+}
+
+.hero-label {
+    color: var(--color-accent);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.hero-content h1 {
+    color: var(--color-primary);
+    font-size: clamp(40px, 5vw, 62px);
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+    margin-bottom: 24px;
+}
+
+.hero-description {
+    max-width: 540px;
+    color: var(--color-secondary);
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+
+/* ========================================
+   6. ABOUT SECTION
+======================================== */
+
+#about {
+    min-height: 100vh;
+    padding: 110px 8%;
+    background-color: var(--color-surface);
+}
+
+.section-heading {
+    margin-bottom: 32px;
+}
+
+.section-label {
+    color: var(--color-accent);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.section-heading h2 {
+    color: var(--color-primary);
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.about-content {
+    max-width: 750px;
+}
+
+.about-content p {
+    color: var(--color-secondary);
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 16px;
+}
+
+
+/* ========================================
+   7. TECHNICAL SKILLS SECTION
+======================================== */
+
+#skills {
+    min-height: 100vh;
+    padding: 110px 8%;
+    background-color: var(--color-background);
+}
+
+.skills-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.skill-card {
+    background-color: var(--color-surface);
+    padding: 32px;
+    border: 1px solid #E8E4DC;
+    border-radius: 14px;
+
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    border-color: #C9D5D0;
+    box-shadow: 0 10px 25px rgba(35, 54, 77, 0.10);
+}
+
+/* Skill Icon */
+
+.skill-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #EDF2EF;
+    color: var(--color-accent);
+
+    border-radius: 12px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/* Skill Card Heading */
+
+.skill-card h3 {
+    color: var(--color-primary);
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+/* Skill List */
+
+.skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill-list span {
+    padding: 8px 13px;
+
+    background-color: var(--color-background);
+    color: var(--color-secondary);
+
+    border: 1px solid #E8E4DC;
+    border-radius: 7px;
+
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* Learning Status */
+
+.skill-list .learning {
+    background-color: #F5F1E8;
+    color: #8A7045;
+    border-color: #E9DFC9;
+    font-style: italic;
+}
+
+
+/* ========================================
+   RESPONSIVE: TECHNICAL SKILLS
+======================================== */
+
+@media screen and (max-width: 768px) {
+
+    #skills {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    #skills {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    .skill-card {
+        padding: 24px;
+    }
+
+    .skill-card h3 {
+        font-size: 18px;
+    }
+}
+
+
+/* ========================================
+   7. PROJECTS SECTION
+======================================== */
+
+#projects {
+    min-height: 100vh;
+    padding: 110px 8%;
+    background-color: var(--color-surface);
+}
+
+.section-description {
+    color: var(--color-secondary);
+    margin-top: 12px;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.project-card {
+    background-color: var(--color-surface);
+    padding: 32px;
+    border: 1px solid #E8E4DC;
+    border-radius: 14px;
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    border-color: #C9D5D0;
+    box-shadow: 0 12px 30px rgba(35, 54, 77, 0.08);
+}
+
+.project-category {
+    color: var(--color-accent);
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.project-card h3 {
+    color: var(--color-primary);
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.project-card > p:not(.project-category) {
+    color: var(--color-secondary);
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.project-tech span {
+    padding: 7px 12px;
+    background-color: var(--color-background);
+    color: var(--color-primary);
+    font-size: 12px;
+    border-radius: 6px;
+}
+
+
+/* ========================================
+   8. CONTACT SECTION
+======================================== */
+
+#contact {
+    padding: 110px 8%;
+    background-color: var(--color-background);
+}
+
+.contact-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    align-items: center;
+    gap: 60px;
+}
+
+.contact-heading h2 {
+    max-width: 550px;
+    color: var(--color-primary);
+    font-size: clamp(32px, 4vw, 46px);
+    line-height: 1.2;
+    margin: 12px 0 20px;
+}
+
+.contact-heading > p:last-child {
+    max-width: 480px;
+    color: var(--color-secondary);
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+.social-links {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.social-link {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #E5E2DB;
+    border-radius: 12px;
+    background-color: #FFFFFF;
+    transition: all 0.25s ease;
+}
+
+.social-link:hover {
+    background-color: var(--color-background);
+    border-color: var(--color-accent);
+    transform: translateY(-4px);
+}
+
+.social-link img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+    display: block;
+}
+
+.social-link:hover {
+    background-color: #F3F0E9;
+    border-color: var(--color-accent);
+    transform: translateY(-4px);
+}
+
+
+/* ========================================
+   9. FOOTER
+======================================== */
+
+footer {
+    background-color: var(--color-primary);
+    color: #FFFFFF;
+    padding: 44px 8%;
+}
+
+.footer-content {
+    text-align: center;
+}
+
+.footer-logo {
+    color: #FFFFFF;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.footer-text {
+    color: #FFFFFF;
+    font-size: 14px;
+}
+
+.copyright {
+    color: #FFFFFF;
+    font-size: 12px;
+}
+
+
+/* ========================================
+   10. RESPONSIVE DESIGN
+======================================== */
+
+/* Tablet & Small Laptop */
+
+@media screen and (max-width: 1024px) {
+
+    header {
+        padding: 20px 6%;
+    }
+
+    #home,
+    #about,
+    #projects,
+    #contact {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
+    .contact-container {
+        gap: 40px;
+    }
+
+    .contact-heading h2 {
+        font-size: 38px;
+    }
+}
+
+
+/* Tablet */
+
+@media screen and (max-width: 768px) {
+
+    header {
+        padding: 20px 5%;
+    }
+
+    #home,
+    #about,
+    #projects,
+    #contact {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    #home {
+        min-height: 100vh   ;
+    }
+
+    .hero-content h1 {
+        font-size: 48px;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 28px;
+        width: 100%;
+    }
+
+    .contact-heading,
+    .contact-heading > p:last-child {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .contact-heading h2 {
+        font-size: 36px;
+    }
+
+    .social-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        width: 100%;
+    }
+}
+
+
+/* Mobile */
+
+@media screen and (max-width: 480px) {
+
+    header {
+        padding: 16px 5%;
+    }
+
+    nav ul {
+        gap: 12px;
+    }
+
+    nav ul li a {
+        font-size: 12px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    #home {
+        min-height: 100vh;
+        padding: 100px 8% 60px;
+    }
+
+    .hero-content h1 {
+        font-size: 38px;
+    }
+
+    
+
+    .section-heading h2 {
+        font-size: 30px;
+    }
+    
+
+    #about,
+    #projects {
+        padding-top: 64px;
+        padding-bottom: 64px;
+    }
+
+    .project-card {
+        padding: 24px;
+    }
+
+    #contact {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .contact-container {
+        gap: 24px;
+    }
+
+    .contact-heading h2 {
+        font-size: 30px;
+        overflow-wrap: break-word;
+    }
+
+    .contact-heading > p:last-child {
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    .social-links {
+        gap: 12px;
+    }
+
+    .social-link {
+        width: 44px;
+        height: 44px;
+        flex-shrink: 0;
+    }
+
+    .social-link img {
+        width: 20px;
+        height: 20px;
+    }
+
+    footer {
+        padding: 28px 20px;
+    }
+
+    .copyright {
+        font-size: 12px;
+        line-height: 1.7;
+    }
+}
+
+
+/* Very Small Mobile */
+
+@media screen and (max-width: 360px) {
+
+    .hero-content h1 {
+        font-size: 34px;
+    }
+
+    .contact-heading h2 {
+        font-size: 27px;
+    }
+
+    .social-link {
+        width: 42px;
+        height: 42px;
+    }
+}
+
+
+/* Accessibility: Reduced Motion */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+
+/* Hamburger menu */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: white;
+    margin: 6px 0;
+    transition: 0.3s;
+}
+
+/* Mobile navigation */
+@media screen and (max-width: 768px) {}
+    .navbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+}
+
+/* Hamburger Button */
+.menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1002;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: white;
+    margin: 6px 0;
+    transition: 0.3s;
+}
+
+/* Navigation Menu */
+.nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 220px;
+    background-color: var(--color-primary);
+    flex-direction: column;
+    gap: 0;
+    padding: 10px 0;
+    border-radius: 0 0 10px 10px;
+    z-index: 1001;
+}
+
+.nav-menu.active {
+    display: flex;
+}
+
+.nav-menu li {
+    width: 100%;
+    list-style: none;
+}
+
+.nav-menu a {
+    display: block;
+    padding: 14px 20px;
+}
+
+/* ================================
+   SUBTLE REVEAL ANIMATIONS
+================================ */
+
+/* Kondisi awal elemen */
+.js-enabled .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+
+/* Ketika elemen terlihat */
+.js-enabled .reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Menghormati pengaturan reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .js-enabled .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
